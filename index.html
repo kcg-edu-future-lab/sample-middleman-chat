@@ -44,7 +44,7 @@ window.onload = ()=>{
     const chat = new Chat(
         "#chatForm", "#nameInputText",
         "#chatInputText", "#chatLogDiv");
-    mm.shareObject(chat, [chat.send], {
+    mm.shareObject(chat, [chat.addLog], {
         "methods": {
             "addLog": {keep: "log", maxLog: "1000"}
         }
