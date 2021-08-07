@@ -25,11 +25,11 @@ class Chat{
             const text = this.messageInputText.value.trim();
             if(text.length == 0) return false;
             this.messageInputText.value = "";
-            this.send(name, text);
+            this.addLog(name, text);
             return false;
         });
     }
-    send(name, message){
+    addLog(name, message){
         const textSpan = document.createElement("span");
         textSpan.append(name + ": " + message);
         this.logDiv.append(textSpan);
@@ -46,7 +46,7 @@ window.onload = ()=>{
         "#chatInputText", "#chatLogDiv");
     mm.shareObject(chat, [chat.send], {
         "methods": {
-            "send": {keep: "log", maxLog: "1000"}
+            "addLog": {keep: "log", maxLog: "1000"}
         }
     });
 };
